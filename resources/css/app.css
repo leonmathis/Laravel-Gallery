@@ -1,0 +1,153 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    line-height: 1.5;
+    font-family: "Montserrat", sans-serif;
+    font-size: 62.5%;
+    color: #8b8b8b;
+    background-color: #181818;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    overflow-y: scroll;
+}
+
+/* navbar */
+.header {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    min-height: 60px;
+    font-size: 1rem;
+    mix-blend-mode: luminosity;
+}
+
+.header ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.header ul li {
+    margin: 0 1em;
+    padding: 1em;
+}
+.header ul li a {
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: medium;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    opacity: 0.7;
+}
+
+/* hover animation */
+.header ul li a::after {
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    content: "";
+    width: 0;
+    height: 3px;
+    transition: all 0.2s linear;
+}
+.header ul li a:hover::after {
+    width: 100%;
+    background-color: #b9b9b9;
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+/* fullscreen view - background image */
+section {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    background-color: #181818;
+    background-size: cover;
+    scroll-snap-align: center;
+}
+
+/* heading - box with curved edges*/
+section h2 {
+    text-transform: uppercase;
+    font-size: 2.25rem;
+    font-weight: 900;
+    padding: 0.5em 1em;
+    color: #181818;
+    background-color: #b9b9b9;
+    border-radius: 0.25em;
+    pointer-events: none;
+    user-select: none;
+}
+
+.btn-group {
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    width: 100px;
+    min-height: 30px;
+    font-size: 1rem;
+    margin: 15px;
+}
+
+.btn {
+    color: #181818;
+    background-color: #919191;
+}
+
+.btn:hover {
+    color: #919191;
+    background-color: #181818;
+}
+
+#formFile {
+    color: #181818;
+    background-color: #919191;
+}
+
+.card {
+    color: #919191;
+    background-color: #0f0e0e;
+}
+
+.cards {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+}
+
+.dropdown-menu {
+    color: #919191;
+    background-color: #0f0e0e;
+}
+
+/* hides scrollbar (aber funktioniert nur im chrome) */
+::-webkit-scrollbar {
+    display: none;
+}
