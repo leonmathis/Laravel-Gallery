@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,9 @@ Route::get('/upload', function () {
 
 Route::get('/', [MediaController::class , 'index'])->middleware('auth');
 Route::post('/upload', [MediaController::class, 'create'])->middleware('auth');
+
+Route::get('/user/edit/', [UserController::class , 'edit'])->middleware('auth');
+Route::put('/user/edit/', [UserController::class , 'update'])->middleware('auth');
 
 Route::get('/image/edit/{mediaId}', [MediaController::class , 'edit'])->middleware('auth');
 Route::put('/image/edit/{mediaId}', [MediaController::class , 'update'])->middleware('auth');

@@ -24,7 +24,7 @@
         <ul class="dropdown-menu dropdown-menu-dark">
             <li><a class="dropdown-item" href="#" onclick="document.querySelector('#logoutForm').submit()">Logout</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/edit">Edit</a></li>
+            <li><a class="dropdown-item" href="/user/edit">Edit</a></li>
             <li><a class="dropdown-item" href="/login">Login</a></li>
             <li><a class="dropdown-item" href="/register">Register</a></li>
         </ul>
