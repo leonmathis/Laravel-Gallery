@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Album;
+use App\Models\Media;
 use Illuminate\Support\Facades\File; 
 
 class AlbumController extends Controller
@@ -71,5 +72,16 @@ class AlbumController extends Controller
         $image->delete();
 
         return redirect('/');
+    }
+
+    public function detail(int $albumId) {
+        $album = Album::find($albumId);
+        
+        $medias = Media::where('album_id', $albumId)->get();
+
+        return view('view', [
+            'album' => $album, 
+            'medias' => $medias
+        ]);
     }
 }

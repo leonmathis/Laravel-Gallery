@@ -20,19 +20,18 @@ Route::get('/', function () {
     return view('home');
 })->middleware('auth');
 
-Route::get('album/add/image/{albumId}', function () {
-    return view('upload');
-})->middleware('auth');
+Route::get('/album/view/{albumId}', [AlbumController::class , 'detail'])->middleware('auth');
 
 Route::get('/add', function () {
     return view('add');
 })->middleware('auth');
 
 Route::get('/', [AlbumController::class , 'index']);
-Route::get('/album/view/{albumId}', [MediaController::class , 'index'])->middleware('auth');
 
 Route::post('/add', [AlbumController::class, 'create'])->middleware('auth');
-Route::post('album/add/image/{albumId}', [MediaController::class, 'create'])->middleware('auth');
+
+Route::get('/album/add/image/{albumId}', [MediaController::class , 'detail'])->middleware('auth');
+Route::post('/album/add/image/{albumId}', [MediaController::class, 'create'])->middleware('auth');
 
 Route::get('/user/edit/', [UserController::class , 'edit'])->middleware('auth');
 Route::put('/user/edit/', [UserController::class , 'update'])->middleware('auth');

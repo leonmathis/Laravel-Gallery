@@ -5,23 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Media;
+use App\Models\Album;
 use Illuminate\Support\Facades\File; 
 use Illuminate\Support\Facades\DB;
 
 class MediaController extends Controller
 {
-    public function index(int $albumId) {
-
-        $userId = auth()->user()->id;
-
-        $medias = Media::where('album_id', $albumId)->get();
-
-        return view('view', [
-            'medias' => $medias, 
-        ]);
-
-    }
-
     public function create(Request $request, int $albumId) {
         $request->validate([
             'name' => 'required', 
@@ -45,7 +34,7 @@ class MediaController extends Controller
 
         $media->save();
 
-        return redirect('/album/view/1');
+        return redirect('/');
     }
 
     public function edit(int $mediaId) {
@@ -84,5 +73,13 @@ class MediaController extends Controller
         $image->delete();
 
         return redirect('/');
+    }
+
+    public function detail(int $albumId) {
+        $album = Album::find($albumId);
+
+        return view('upload', [
+            'album' => $album,
+        ]);
     }
 }

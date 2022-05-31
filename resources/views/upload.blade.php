@@ -6,7 +6,7 @@
 <section>
     <h2 class="opacity-75 fs-3"><i class="bi bi-image-fill"></i></h2>
         <div class="col-md-4 container">
-            <form method="POST" action="1" enctype="multipart/form-data">
+            <form method="POST" action="{{ $album->id }}" enctype="multipart/form-data">
             @csrf
                 <br>
 
