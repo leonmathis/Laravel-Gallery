@@ -34,7 +34,7 @@ class MediaController extends Controller
 
         $media->save();
 
-        return redirect('/');
+        return redirect('/album/view/'.$albumId);
     }
 
     public function edit(int $mediaId) {
