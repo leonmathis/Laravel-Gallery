@@ -4,9 +4,9 @@
 
 <div>
 <section>
-    <h2 class="opacity-75 fs-3"><i class="bi bi-image-fill"></i></h2>
+    <h2 class="opacity-75 fs-3"><i class="bi bi-plus-circle-dotted"></i></h2>
         <div class="col-md-4 container">
-            <form method="POST" action="1" enctype="multipart/form-data">
+            <form method="POST" action="/add" enctype="multipart/form-data">
             @csrf
                 <br>
 
@@ -20,13 +20,6 @@
                     <label for="exampleFormControlInput1" class="col-sm-2 col-form-label" style="colour: #4d4d4d;">name</label>
                     <div class="col-sm-10">
                     <input type="text" class="opacity-50 form-control" id="name" name="name">
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <label for="exampleFormControlInput1" class="col-sm-2 col-form-label" style="colour: #4d4d4d;">description</label>
-                    <div class="col-sm-10">
-                    <textarea type="text" class="opacity-50 form-control" id="description" name="description"></textarea>
                     </div>
                 </div>
 

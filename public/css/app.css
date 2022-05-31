@@ -155,3 +155,7 @@ section h2 {
     display: none;
 }
 
+.card:hover {
+    transform: scale(1.1);
+}
+

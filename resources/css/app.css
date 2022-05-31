@@ -151,3 +151,7 @@ section h2 {
 ::-webkit-scrollbar {
     display: none;
 }
+
+.card:hover {
+    transform: scale(1.1);
+}

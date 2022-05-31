@@ -6,23 +6,23 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Media;
 use Illuminate\Support\Facades\File; 
+use Illuminate\Support\Facades\DB;
 
 class MediaController extends Controller
 {
-    public function index() {
+    public function index(int $albumId) {
 
         $userId = auth()->user()->id;
 
-        // $medias = Media::all();
-        $medias = Media::where('user_id', $userId)->get();
+        $medias = Media::where('album_id', $albumId)->get();
 
-        return view('home', [
+        return view('view', [
             'medias' => $medias, 
         ]);
 
     }
 
-    public function create(Request $request) {
+    public function create(Request $request, int $albumId) {
         $request->validate([
             'name' => 'required', 
             'description' => 'required', 
@@ -38,13 +38,14 @@ class MediaController extends Controller
         $media = new Media();
 
         $media->user_id = $userId;
+        $media->album_id = $albumId;
         $media->name = $request->name;
         $media->description = $request->description;
         $media->path = $newImageName;
 
         $media->save();
 
-        return redirect('/');
+        return redirect('/album/view/1');
     }
 
     public function edit(int $mediaId) {

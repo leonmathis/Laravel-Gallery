@@ -6,20 +6,15 @@
 <section id="contact">
 
     <div class="container cards">
-        @foreach ($medias as $media)
+        @foreach ($albums as $album)
             <div class="col-6 m-2">
                 <div class="card border-dark col-md-12">
-                    <img src="{{ asset('images/' . $media->path) }}" class="card-img-top" height="270px" width="420px">
+                    <img src="{{ asset('images/' . $album->cover) }}" class="card-img-top" height="270px" width="420px">
                     <div class="card-body text-center">
-                        <h5 class="card-title">{{ $media->name }}</h5>
-                        <p class="card-text">posted by {{ $media->user->email }}</p>
-                        <p class="card-text">{{ $media->description }}</p>
-                        <a href="/image/edit/{{ $media->id }}" class="btn btn-dark"><i class="bi bi-pencil-square"></i></a>
-                        <form action="/image/delete/{{ $media->id }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-dark" title="delete"><i class="bi bi-x-circle"></i></button>
-                        </form>
+                        <h5 class="card-title">{{ $album->name }}</h5>
+                        <a href="/album/edit/{{ $album->id }}" class="btn btn-dark"><i class="bi bi-pencil-square"></i></a>
+                        <a href="/album/add/image/{{ $album->id }}" class="btn btn-dark"><i class="bi bi-plus-square-dotted"></i></a>
+                        <a href="/album/view/{{ $album->id }}" class="btn btn-dark"><i class="bi bi-view-list"></i></a>
                     </div>
                 </div>
             </div>

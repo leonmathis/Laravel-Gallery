@@ -38,7 +38,6 @@
                 @endif
 
                 <button type="submit" id="submit-button" class="btn btn-dark">submit</button>
-
             </form>
 </div>
 </section>

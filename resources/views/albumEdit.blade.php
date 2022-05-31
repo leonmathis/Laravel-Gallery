@@ -4,29 +4,17 @@
 
 <div>
 <section>
-    <h2 class="opacity-75 fs-3"><i class="bi bi-image-fill"></i></h2>
+    <h2 class="opacity-75 fs-3"><i class="bi bi-pencil-square"></i></h2>
         <div class="col-md-4 container">
-            <form method="POST" action="1" enctype="multipart/form-data">
+            <form method="POST" action="">
             @csrf
+            @method('PUT')
                 <br>
-
-                <div class="row mb-3">
-                    <div class="col-sm-12">
-                    <input type="file" class="opacity-50 form-control" id="image" name="image">
-                    </div>
-                </div>
 
                 <div class="row mb-3">
                     <label for="exampleFormControlInput1" class="col-sm-2 col-form-label" style="colour: #4d4d4d;">name</label>
                     <div class="col-sm-10">
-                    <input type="text" class="opacity-50 form-control" id="name" name="name">
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <label for="exampleFormControlInput1" class="col-sm-2 col-form-label" style="colour: #4d4d4d;">description</label>
-                    <div class="col-sm-10">
-                    <textarea type="text" class="opacity-50 form-control" id="description" name="description"></textarea>
+                    <input type="text" class="opacity-50 form-control" id="name" name="name" value="{{ $album->name }}">
                     </div>
                 </div>
 
@@ -43,7 +31,12 @@
                 @endif
 
                 <button type="submit" id="submit-button" class="btn btn-dark">submit</button>
+            </form>
 
+            <form action="/album/delete/{{ $album->id }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-dark" title="delete"><i class="bi bi-x-circle"></i></button>
             </form>
 </div>
 </section>
