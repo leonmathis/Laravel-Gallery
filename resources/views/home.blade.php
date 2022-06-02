@@ -13,7 +13,7 @@
                     <div class="card-body text-center">
                         <h5 class="card-title">{{ $album->name }}</h5>
                         <a href="/album/edit/{{ $album->id }}" class="btn btn-dark"><i class="bi bi-pencil-square"></i></a>
-                        <a href="/album/add/image/{{ $album->id }}" class="btn btn-dark"><i class="bi bi-plus-square-dotted"></i></a>
+                        <a href="/album/add/image/{{ $album->id }}" class="btn btn-dark"><i class="bi bi-upload"></i></a>
                         <a href="/album/view/{{ $album->id }}" class="btn btn-dark"><i class="bi bi-view-list"></i></a>
                     </div>
                 </div>

@@ -22,11 +22,17 @@
         <i class="bi bi-person-circle"></i>
         </button>
         <ul class="dropdown-menu dropdown-menu-dark">
+            @isset(auth()->user()->id)
             <li><a class="dropdown-item" href="#" onclick="document.querySelector('#logoutForm').submit()">Logout</a></li>
             <li><hr class="dropdown-divider"></li>
+            @endisset
+            @isset(auth()->user()->id)
             <li><a class="dropdown-item" href="/user/edit">Edit</a></li>
+            @endisset
+            @empty(auth()->user()->id)
             <li><a class="dropdown-item" href="/login">Login</a></li>
             <li><a class="dropdown-item" href="/register">Register</a></li>
+            @endempty
         </ul>
     </div>
 

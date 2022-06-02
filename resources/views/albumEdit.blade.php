@@ -34,9 +34,9 @@
             </form>
 
             <form action="/album/delete/{{ $album->id }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-dark" title="delete"><i class="bi bi-x-circle"></i></button>
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-dark mt-2 ms-3" title="delete"><i class="bi bi-x-circle"></i></button>
             </form>
 </div>
 </section>
