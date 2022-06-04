@@ -82,4 +82,14 @@ class MediaController extends Controller
             'album' => $album,
         ]);
     }
+
+    public function mygallery() {
+        $userId = auth()->user()->id;
+
+        $medias = Media::where('user_id', $userId)->get();
+
+        return view('mygallery', [
+            'medias' => $medias,
+        ]);
+    }
 }

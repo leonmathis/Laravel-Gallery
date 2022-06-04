@@ -116,6 +116,22 @@ section h2 {
     margin: 15px;
 }
 
+.list-group-item {
+    color: #181818;
+    background-color: #919191;
+}
+
+.list-group-item:hover {
+    color: #919191;
+    background-color: #181818;
+}
+
+.list-group-item:focus {
+    color: #919191;
+    background-color: #181818;
+    outline: #919191;
+}
+
 .btn {
     color: #181818;
     background-color: #919191;
@@ -154,4 +170,12 @@ section h2 {
 
 .card:hover {
     transform: scale(1.1);
+}
+
+#mediadiv {
+    display: none;
+}
+
+#albumdiv {
+    display: none;
 }

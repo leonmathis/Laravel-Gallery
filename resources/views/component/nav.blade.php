@@ -6,6 +6,12 @@
             @isset($album->id)
             <li><a href="/album/add/image/{{ $album->id }}"><i class="bi bi-upload"></i></a></li>
             @endisset
+            <li><a href="/mygallery"><i class="bi bi-tropical-storm"></i></a></li>
+            @isset(auth()->user()->id)
+                @if(auth()->user()->is_admin == 1)
+                <li><a href="/admin"><i class="bi bi-person-badge"></i></a></li>
+                @endif
+            @endisset
         </ul>
     </div>
 </div>

@@ -2164,6 +2164,39 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+window.onload = function () {
+  var buttonUser = document.querySelector("#popuserbtn");
+  popUser();
+  buttonUser.focus();
+};
+
+window.popUser = function () {
+  var user = document.querySelector("#userdiv");
+  var album = document.querySelector("#albumdiv");
+  var media = document.querySelector("#mediadiv");
+  user.style.display = "inline-block";
+  album.style.display = "none";
+  media.style.display = "none";
+};
+
+window.popAlbum = function () {
+  var user = document.querySelector("#userdiv");
+  var album = document.querySelector("#albumdiv");
+  var media = document.querySelector("#mediadiv");
+  album.style.display = "inline-block";
+  user.style.display = "none";
+  media.style.display = "none";
+};
+
+window.popMedia = function () {
+  var user = document.querySelector("#userdiv");
+  var album = document.querySelector("#albumdiv");
+  var media = document.querySelector("#mediadiv");
+  album.style.display = "none";
+  user.style.display = "none";
+  media.style.display = "inline-block";
+};
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
