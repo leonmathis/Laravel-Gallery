@@ -9,9 +9,10 @@
         @foreach ($medias as $media)
             <div class="col-md-4 mb-4">
                 <div class="card border-dark">
-                    <img src="{{ asset('images/' . $media->path) }}" class="card-img-top" height="270px" width="420px">
+                    <a href="/view/image/{{ $media->id }}"><img src="{{ asset('images/' . $media->path) }}" class="card-img-top" height="270px" width="420px"></a>
                     <div class="card-body text-center">
                         <h5 class="card-title">{{ $media->name }}</h5>
+                        <p class="card-text">{{ $media->album->name }}</p>
                         <p class="card-text">{{ $media->description }}</p>
                         <a href="/image/edit/{{ $media->id }}" class="btn btn-dark"><i class="bi bi-pencil-square"></i></a>
                         <form action="/image/delete/{{ $media->id }}" method="POST">

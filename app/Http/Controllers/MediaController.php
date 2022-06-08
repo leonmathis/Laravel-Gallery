@@ -83,6 +83,14 @@ class MediaController extends Controller
         ]);
     }
 
+    public function show(int $mediaId) {
+        $media = Media::find($mediaId);
+
+        return view('show', [
+            'media' => $media,
+        ]);
+    }
+
     public function mygallery() {
         $userId = auth()->user()->id;
 

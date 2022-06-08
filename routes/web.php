@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\AdminController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,27 +32,31 @@ Route::get('/add', function () {
     return view('add');
 })->middleware('auth');
 
-Route::get('/', [AlbumController::class , 'index']);
+Route::get('/', [AlbumController::class , 'index'])->middleware('auth');
+
+Route::get('/view/image/{mediaId}', [MediaController::class , 'show'])->middleware('auth');
 
 Route::post('/add', [AlbumController::class, 'create'])->middleware('auth');
 
-Route::get('/album/add/image/{albumId}', [MediaController::class , 'detail'])->middleware('auth');
-Route::post('/album/add/image/{albumId}', [MediaController::class, 'create'])->middleware('auth');
+Route::get('/album/add/image/{albumId}', [MediaController::class , 'detail'])->middleware(['auth', 'userauth']);
+Route::post('/album/add/image/{albumId}', [MediaController::class, 'create'])->middleware(['auth', 'userauth']);
 
 Route::get('/user/edit/', [UserController::class , 'edit'])->middleware('auth');
 Route::put('/user/edit/', [UserController::class , 'update'])->middleware('auth');
 
-Route::get('/album/edit/{albumId}', [AlbumController::class , 'edit'])->middleware(['auth', 'adminauth']);
-Route::put('/album/edit/{albumId}', [AlbumController::class , 'update'])->middleware(['auth', 'adminauth']);
+Route::get('/album/edit/{albumId}', [AlbumController::class , 'edit'])->middleware(['auth', 'userauth']);
+Route::put('/album/edit/{albumId}', [AlbumController::class , 'update'])->middleware(['auth', 'userauth']);
 
 
 Route::get('/image/edit/{mediaId}', [MediaController::class , 'edit'])->middleware(['auth', 'userauth']);
 Route::put('/image/edit/{mediaId}', [MediaController::class , 'update'])->middleware(['auth', 'userauth']);
 
 Route::delete('/image/delete/{mediaId}', [MediaController::class , 'delete'])->middleware(['auth', 'userauth']);
-Route::delete('/album/delete/{albumId}', [AlbumController::class , 'delete'])->middleware(['auth', 'adminauth']);
+Route::delete('/album/delete/{albumId}', [AlbumController::class , 'delete'])->middleware(['auth', 'userauth']);
 
 Route::get('/admin/user/edit/{userId}', [UserController::class , 'editUser'])->middleware(['auth', 'adminauth']);
 Route::put('/admin/user/edit/{userId}', [UserController::class , 'updateUser'])->middleware(['auth', 'adminauth']);
 
 Route::delete('/admin/user/delete/{userId}', [UserController::class, 'deleteUser'])->middleware(['auth', 'adminauth']);
+
+Route::get('/admin/album/{userId}', [AdminController::class , 'detailAlbum'])->middleware(['auth', 'adminauth']);

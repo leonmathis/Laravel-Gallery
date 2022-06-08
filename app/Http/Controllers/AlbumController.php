@@ -31,7 +31,10 @@ class AlbumController extends Controller
 
         $album = new Album();
 
+        $userid = auth()->user()->id;
+
         $album->name = $request->name;
+        $album->user_id = $userid;
         $album->cover = $newImageName;
 
         $album->save();
