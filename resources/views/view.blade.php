@@ -21,7 +21,7 @@
                             <h5 class="card-title">{{ $media->name }}</h5>
                             <p class="card-text">posted by {{ $media->user->email }}</p>
                             <p class="card-text">{{ $media->description }}</p>
-                            @if(auth()->user()->id == $media->user_id)
+                            @if(auth()->user()->id == $media->user_id || auth()->user()->is_admin == 1)
                             <a href="/image/edit/{{ $media->id }}" class="btn btn-dark"><i class="bi bi-pencil-square"></i></a>
                             <form action="/image/delete/{{ $media->id }}" method="POST">
                                     @csrf

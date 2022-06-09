@@ -57,12 +57,19 @@ class UserController extends Controller
     
     public function deleteUser(int $userId) {
         $user = User::find( $userId );
-        $media = Media::where('user_id', $userId)->get();
+        $medias = Media::where('user_id', $userId)->get();
+        $albums = Album::where('user_id', $userId)->get();
 
-        if (isset($media)) {
-            $filepath = "images/{$media->each->path}";
+        foreach ($medias as $media) {
+            $filepath = "images/{$media->path}";
             File::delete($filepath);
-            $media->each->delete();
+            $media->delete();
+        }
+
+        foreach ($albums as $album) {
+            $filepath = "images/{$album->cover}";
+            File::delete($filepath);
+            $album->delete();
         }
 
         $user->delete();
