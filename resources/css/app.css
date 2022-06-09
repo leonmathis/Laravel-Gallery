@@ -171,11 +171,3 @@ section h2 {
 .card:hover {
     transform: scale(1.1);
 }
-
-#mediadiv {
-    display: none;
-}
-
-#albumdiv {
-    display: none;
-}
