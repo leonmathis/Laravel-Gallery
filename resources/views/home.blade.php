@@ -13,7 +13,7 @@
                     <div class="card-body text-center">
                         <h5 class="card-title">{{ $album->name }}</h5>
                         <p class="card-text">created by {{ $album->user->firstname }} {{ $album->user->lastname }}</p>
-                        @if(auth()->user()->id == $album->user_id) 
+                        @if(auth()->user()->id == $album->user_id || auth()->user()->is_admin) 
                         <a href="/album/edit/{{ $album->id }}" class="btn btn-dark"><i class="bi bi-pencil-square"></i></a>
                         <a href="/album/add/image/{{ $album->id }}" class="btn btn-dark"><i class="bi bi-upload"></i></a>
                         @endif
